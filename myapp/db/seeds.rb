@@ -4,4 +4,14 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Project.delete_all
+Todo.delete_all
+FILE = HashWithIndifferentAccess.new(YAML.load(File.read(File.expand_path('C:/app/myapp/db/seeds/seeds.yml', __FILE__))))
+FILE.each do |key, values|
+Project.create values
+Todo.crate values
+
+
+
+
+end

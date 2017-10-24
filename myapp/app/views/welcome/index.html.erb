@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<h1>Задачи</h1>
+<% @projects.each do |project| %>
+<h2><%= project.title %></h2>
+<% project.todos.each do |todo| %>
+  <ul>
+    <li>
+      <%= todo.text %>
+    </li>
+  </ul>
+    <% end %>
+  <% end %>
+  <div id="pa" style="display: none;">
+    <br>
+    <h2>Новая Задача</h2>
+    <%= form_with scope: :todo, url: welcome_index_path, local: true do |form| %>
+      <p>
+        <%= form.text_field :text, placeholder: "Название задачи.." %>
+        <%= form.collection_select(:project_id, Project.all, :id, :title) %>
+        <br>
+        <a href="#">Отмена</a>
+           <%= form.submit %>
+      </p>
+    <% end %>
+  </div>
+  <button  onclick="location.href='todos/new'" id="b" type="button">+</button>
+<script>
+  $(document).ready(function(){
+    $('#b').click(function(){
+    $('div').show();
+    $(this).hide();
+      });
+      $('a').click(function(){
+      $('div').hide();
+      $('#b').show();
+        });
+    });
+      </script>
+</html>
