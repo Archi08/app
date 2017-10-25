@@ -18,7 +18,7 @@
   <div id="pa" style="display: none;">
     <br>
     <h2>Новая Задача</h2>
-    <%= form_with scope: :todo, url: welcome_index_path, local: true do |form| %>
+    <%= form_with scope: :todo, local: true do |form| %>
       <p>
         <%= form.text_field :text, placeholder: "Название задачи.." %>
         <%= form.collection_select(:project_id, Project.all, :id, :title) %>
@@ -28,7 +28,7 @@
       </p>
     <% end %>
   </div>
-  <button  onclick="location.href='todos/new'" id="b" type="button">+</button>
+  <button id="b" type="button">+</button>
 <script>
   $(document).ready(function(){
     $('#b').click(function(){

@@ -1,4 +1,8 @@
 class TodosController < ApplicationController
+  def index
+    @todos = Todo.all
+    @projects = Project.all
+  end
   def new
     @todos = Todo.all
     @projects = Project.all

@@ -25,8 +25,8 @@ default: &default
 development:
   <<: *default
   database: postgres
-  username: Artur
-  password: artur
+  username: postgres
+  password: root
   host: localhost
 
 
@@ -40,5 +40,5 @@ test:
 production:
   <<: *default
   database: postgres
-  username: Artur
-  password: artur
+  username: postgres
+  password: root
