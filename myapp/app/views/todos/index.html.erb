@@ -24,7 +24,7 @@
         <%= form.collection_select(:project_id, Project.all, :id, :title) %>
         <br>
         <a href="#">Отмена</a>
-           <%= form.submit %>
+            <%= link_to "Ok", "#", onclick: "$(this).closest('form').submit()"%>
       </p>
     <% end %>
   </div>
